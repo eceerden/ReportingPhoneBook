@@ -8,6 +8,7 @@ namespace PhoneBookSide.API.Models.DTO
 {
     public class PersonDTO
     {
+        public int ID { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

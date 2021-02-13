@@ -42,6 +42,8 @@ namespace PhoneBookSide.API.Controllers
             _phonecontext.people.Add(newperson);
             _phonecontext.SaveChanges();
 
+                person.ID = newperson.ID;
+
 
 
             return Ok(person);
@@ -52,6 +54,27 @@ namespace PhoneBookSide.API.Controllers
 
         }
     }
+
+        [Route("delete")]
+        [HttpPost]
+        public IActionResult Delete([FromForm] PersonDeleteDTO personDelete)
+        {
+
+            Person person = _phonecontext.people.Find(personDelete.ID);
+
+            if (person != null)
+            {
+                person.IsDeleted = true;
+                _phonecontext.SaveChanges();
+
+                return Ok(person);
+            }
+            else
+            {
+                return BadRequest("This ID is not valid!!");
+            }
+
+        }
 
 
 
