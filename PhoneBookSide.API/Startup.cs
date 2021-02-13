@@ -47,6 +47,7 @@ namespace PhoneBookSide.API
 
             app.UseEndpoints(endpoints =>
             {
+                //endpoints.MapControllerRoute("default", "{Controller=Values}/{Action=Index}/{id?}");
                 endpoints.MapControllers();
             });
         }

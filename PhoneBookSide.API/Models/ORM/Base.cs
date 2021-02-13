@@ -9,14 +9,8 @@ namespace PhoneBookSide.API.Models.ORM
     {
         public int ID { get; set; }
 
-        private bool _isdeleted = false;
-        public bool isdeleted
-        
-        { 
-            get
-            {return _isdeleted; }
-            set {isdeleted = value; }
-        
-        }
+        public bool IsDeleted { get; set; } = false;
+
+        public DateTime AddDate { get; set; } = DateTime.Now;
     }
 }

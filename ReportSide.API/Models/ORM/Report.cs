@@ -15,9 +15,18 @@ namespace ReportSide.API.Models.ORM
 
         public DateTime requesttime { get; set; }
 
+        private bool _status = false;
+        public bool Status
 
+        {
+            get
+            { return _status; }
+            set
+            { Status = value; }
 
-        public bool Status { get; set; } 
+        }
+
+        
 
     }
 }
