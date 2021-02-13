@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportSide.API", "ReportSide.API\ReportSide.API.csproj", "{BDF34897-B0CB-40B6-932E-44E5F16E3A34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookSide.API", "PhoneBookSide.API\PhoneBookSide.API.csproj", "{688DABED-8CEB-4EF1-AE5B-4B9769A50B27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDF34897-B0CB-40B6-932E-44E5F16E3A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF34897-B0CB-40B6-932E-44E5F16E3A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF34897-B0CB-40B6-932E-44E5F16E3A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF34897-B0CB-40B6-932E-44E5F16E3A34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{688DABED-8CEB-4EF1-AE5B-4B9769A50B27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{688DABED-8CEB-4EF1-AE5B-4B9769A50B27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{688DABED-8CEB-4EF1-AE5B-4B9769A50B27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{688DABED-8CEB-4EF1-AE5B-4B9769A50B27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5E44A61-43B9-4AFD-8B6F-88A78A0854DC}
+	EndGlobalSection
+EndGlobal
