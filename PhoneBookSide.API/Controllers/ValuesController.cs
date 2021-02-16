@@ -22,16 +22,18 @@ namespace PhoneBookSide.API.Controllers
 
         public ValuesController(ProducerConfig config, PhoneBookContext phonecontext)      {
             this._config = config;
-            phonecontext = _phonecontext;
+            _phonecontext = phonecontext;
 
         }
 
 
 
         [Route("list")]
-    public List<PersonAddDTO> GetList()
+    public IActionResult GetList()
     {
             //List<PersonDTO> people = _phonecontext.people.Where(q => q.IsDeleted == false).ToList();
+
+      
 
             List<PersonAddDTO> people = _phonecontext.people.Where(q => q.IsDeleted == false).Select(q => new PersonAddDTO()
             {
@@ -43,7 +45,7 @@ namespace PhoneBookSide.API.Controllers
 
             }).ToList();
 
-            return people;
+            return Ok(people);
     }
 
     [Route("create")]
