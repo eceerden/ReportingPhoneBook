@@ -1,3 +1,4 @@
+using Confluent.Kafka;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +28,9 @@ namespace PhoneBookSide.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ProducerConfig producer = new ProducerConfig();
+            Configuration.Bind("producer", producer);
+            services.AddSingleton<ProducerConfig>(producer);
             services.AddControllers();
             services.AddDbContext<PhoneBookContext>();
         }
