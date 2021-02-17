@@ -12,6 +12,8 @@ The phonebook lists phonedetails and reports to you
 
 /delete - deleting a person with id
 
+For creating people and detail infos, postman is used.
+
 
 KAFKA Links
 https://www.youtube.com/watch?v=n_IQq3pze0s&t=697s&ab_channel=CodeOpinion
