@@ -17,6 +17,6 @@ namespace PhoneBookSide.API.Models.DTO
         [Required]
         public string Company { get; set; }
 
-        public List<ConnectionInfo> details { get; set; }
+        public List<ConnectionInfoDTO> details { get; set; }
     }
 }

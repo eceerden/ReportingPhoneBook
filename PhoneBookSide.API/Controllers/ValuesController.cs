@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 
 namespace PhoneBookSide.API.Controllers
 {
-   
+
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ValuesController : Controller
     {
 
         private readonly PhoneBookContext _phonecontext;
@@ -30,12 +30,10 @@ namespace PhoneBookSide.API.Controllers
 
 
         [Route("list")]
-    public IActionResult GetList()
+    public List<PersonAddDTO> GetList()
     {
             //List<Person> people = _phonecontext.people.Where(q => q.IsDeleted == false).ToList();
-
-      
-
+                 
             List<PersonAddDTO> people = _phonecontext.people.Where(q => q.IsDeleted == false).Select(q => new PersonAddDTO()
             {
                 ID = q.ID,
@@ -46,10 +44,12 @@ namespace PhoneBookSide.API.Controllers
 
             }).ToList();
 
-            return Ok(people);
+            return people;
     }
 
-    [Route("create")]
+   
+
+        [Route("create")]
     [HttpPost]
     public IActionResult CreatePerson([FromForm] PersonDTO person)
     {
@@ -82,14 +82,14 @@ namespace PhoneBookSide.API.Controllers
         public IActionResult Delete([FromForm] PersonDeleteDTO personDelete)
         {
 
-            Person person = _phonecontext.people.Find(personDelete.ID);
+            Person deletedperson = _phonecontext.people.Find(personDelete.ID);
 
-            if (person != null)
+            if (deletedperson != null)
             {
-                person.IsDeleted = true;
+                deletedperson.IsDeleted = true;
                 _phonecontext.SaveChanges();
 
-                return Ok(person);
+                return Ok(deletedperson);
             }
             else
             {
@@ -138,7 +138,14 @@ namespace PhoneBookSide.API.Controllers
                     Name = q.Name,
                     Surname = q.Surname,
                     Company = q.Company,
-                    details = q.Infos
+                    details = _phonecontext.connectionInfos.Where(q=>q.IsDeleted == false && q.PersonID == id ).Select(q=> new ConnectionInfoDTO()
+                    {
+                        Phone=q.Phone,
+                        Email = q.Email,
+                        Location =q.Location,
+                        context = q.context
+
+                    }).ToList()
                     
                     
                 }).FirstOrDefault(x => x.ID == id);
