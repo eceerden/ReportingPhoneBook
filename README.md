@@ -13,6 +13,8 @@ Reporting part could not executed is still in progress
 
 /delete - deleting a person with id
 
+/detail/id - getting details according to id
+
 For creating people and detail infos, postman is used.
 
 
