@@ -163,8 +163,8 @@ namespace PhoneBookSide.API.Controllers
         [HttpPost("Send")]
         public async Task<IActionResult> Get(string topic)
         {
-            var Personlist = GetList();
-            string serializedPerson = JsonConvert.SerializeObject(Personlist);
+            var detailedlist = GetList();
+            string serializedPerson = JsonConvert.SerializeObject(detailedlist);
             using (var producer = new ProducerBuilder<Null, string>(_config).Build())
             {
                 await producer.ProduceAsync(topic, new Message<Null, string> { Value = serializedPerson });
@@ -172,10 +172,6 @@ namespace PhoneBookSide.API.Controllers
                 return Ok("Your send request is in progress");
             }
         }
-
-
-
-
 
     }
 }

@@ -30,8 +30,12 @@ namespace ReportingPhoneBook.Test.PhoneBookSide.API.ControllersTest
             PhoneBookContext _phonecontext = new PhoneBookContext();
             ProducerConfig _config = new ProducerConfig();
             ValuesController valuesController = new ValuesController(_config, _phonecontext);
-
+            
             PersonDTO person = new PersonDTO();
+            person.Name = "Andy";
+            person.Surname = "Jassy";
+            person.Company = "Amazon Web Services";
+
             var result = valuesController.CreatePerson(person);
 
             Assert.IsNotNull(result);
