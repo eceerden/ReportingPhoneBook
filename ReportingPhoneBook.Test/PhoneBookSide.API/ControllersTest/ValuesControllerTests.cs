@@ -50,9 +50,9 @@ namespace ReportingPhoneBook.Test.PhoneBookSide.API.ControllersTest
          
             //var id = personDelete.ID;
 
-            var result = valuesController.Delete(personDelete);
+            var deletedperson = valuesController.Delete(personDelete);
 
-            Assert.IsNotNull(result);
+            Assert.IsNotNull(deletedperson);
                     
         }
 
@@ -64,12 +64,12 @@ namespace ReportingPhoneBook.Test.PhoneBookSide.API.ControllersTest
             ValuesController valuesController = new ValuesController(_config, _phonecontext);
 
             var model = new ConnectionInfoAddDTO();
+            model.PersonID = 1;
+         
 
-            //var id = personDelete.ID;
+            var info = valuesController.Add(model);
 
-            var result = valuesController.Add(model);
-
-            Assert.IsNotNull(result);
+            Assert.IsNotNull(info);
         }
 
         [Test]
