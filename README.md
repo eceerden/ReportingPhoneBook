@@ -1,5 +1,6 @@
 # ReportingPhoneBook
-The phonebook lists phonedetails and reports to you
+The phonebook lists phonedetails and reports to you, you can add new person and their details via like postman etc.
+Reporting part could not executed is still in progress
 
 /list - listing people with details
 
