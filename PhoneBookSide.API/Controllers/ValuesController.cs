@@ -1,5 +1,6 @@
 ﻿
 using Confluent.Kafka;
+
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PhoneBookSide.API.Models.DTO;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace PhoneBookSide.API.Controllers
 {
-    //[route("api/[controller]")]
+   
     [ApiController]
     public class ValuesController : ControllerBase
     {
@@ -31,7 +32,7 @@ namespace PhoneBookSide.API.Controllers
         [Route("list")]
     public IActionResult GetList()
     {
-            //List<PersonDTO> people = _phonecontext.people.Where(q => q.IsDeleted == false).ToList();
+            //List<Person> people = _phonecontext.people.Where(q => q.IsDeleted == false).ToList();
 
       
 
@@ -161,7 +162,7 @@ namespace PhoneBookSide.API.Controllers
             {
                 await producer.ProduceAsync(topic, new Message<Null, string> { Value = serializedPerson });
                 producer.Flush(TimeSpan.FromSeconds(10));
-                return Ok(true);
+                return Ok("Your send request is in progress");
             }
         }
 
